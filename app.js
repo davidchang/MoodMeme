@@ -50,7 +50,7 @@ app.get('/', function(req, res) {
     console.log(req.user);
 
     if(req.user)
-        res.render('index', { title: 'Hello ' + req.user.displayName, user: req.user });
+        res.render('main-mood-page', { title: 'Hello ' + req.user.displayName, user: req.user });
     else
         res.render('index', { title: 'You are not yet logged in', user: req.user });
 });
