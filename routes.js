@@ -4,6 +4,11 @@ module.exports.setRoutes = function(app, passport) {
         successRedirect: '/',
         failureRedirect: '/' }));
 
+    app.get('/auth/twitter', passport.authenticate('twitter'));
+    app.get('/auth/twitter/callback', passport.authenticate('twitter', {
+        successRedirect: '/',
+        failureRedirect: '/' }));
+
     app.get('/logout', function(req, res){
         req.logout();
         res.redirect('/');
