@@ -1,9 +1,9 @@
 {
-  "name": "BibleNote",
+  "name": "MoodMeme",
   "author": "David chang <dchang.me@gmail.com>",
-  "homepage": "http://github.com/davidchang/express-facebook-boilerplate",
+  "homepage": "http://github.com/davidchang/MoodMeme",
   "bugs": {
-      "url": "http://github.com/davidchang/express-facebook-boilerplate/issues"
+      "url": "http://github.com/davidchang/MoodMeme/issues"
   },
   "version": "0.0.1",
   "private": true,
