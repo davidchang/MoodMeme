@@ -55,6 +55,14 @@ app.get('/', function(req, res) {
         res.render('index', { title: 'You are not yet logged in', user: req.user });
 });
 
+app.post('/mood', function(req, res) {
+    console.log("RECEIVED THIS SET OF MOODS: " + req.body.mood);
+});
+
+app.post('/moodEvent', function(req, res) {
+    console.log("RECEIVED THIS MOOD EVENT: " + req.body.moodEvent);
+});
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
