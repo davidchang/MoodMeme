@@ -16,7 +16,8 @@
     "less-middleware": "0.1.9",
     "connect-redis": "1.4.5",
     "passport": "0.1.15",
-    "passport-facebook": "0.1.5"
+    "passport-facebook": "0.1.5",
+    "redis": "0.8.2"
   },
   "engines": {
     "node": "0.8.x",
