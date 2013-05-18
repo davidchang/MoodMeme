@@ -10,4 +10,3 @@ lib-cov
 *.swo
 
 node_modules/
-config.js
