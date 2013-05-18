@@ -5,7 +5,7 @@ var express = require('express')
   , client = redis.createClient()
   , passport = require('passport');
 
-require('./passport-config');
+require('./passport-config')(passport, client);
 
 client.on('error', function(err) {
     console.log('redis error ' + err);
