@@ -5,15 +5,26 @@ App.controller('MoodCtrl', ['$scope', 'localStorageService', 'REST', function($s
         var toSet = [];
 
         var data = response.data;
-        console.log(data);
 
         for(var i = 0, len = data.length; i < len; ++i) {
             var curMoodTypes = data[i].mood;
 
-            toSet.push(JSON.parse(curMoodTypes));
+            toSet.push({ mood: JSON.parse(curMoodTypes), time: data[i].date });
         }
-        console.log(toSet);
 
         $scope.moodData = toSet;
+    });
+
+    REST.getEvents(function(response) {
+        var toSet = [];
+
+        console.log(response.data);
+
+        var data = response.data;
+        for(var i = 0, len = data.length; i < len; ++i) {
+            toSet.push({ moodEvent: data[i].text, time: data[i].date });
+        }
+
+        $scope.eventData = toSet;
     });
 }]);

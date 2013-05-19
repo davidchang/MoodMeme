@@ -18,6 +18,15 @@ var moodSchema = mongoose.Schema({
 
 var Mood = mongoose.model('Mood', moodSchema);
 
+var eventSchema = mongoose.Schema({
+    userId: String,
+    date: { type: Date, default: Date.now },
+    text: String
+});
+
+var Event = mongoose.model('Event', eventSchema);
+
 module.exports = {
-    Mood: Mood
+    Mood: Mood,
+    Event: Event
 }

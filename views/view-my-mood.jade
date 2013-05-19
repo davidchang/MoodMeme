@@ -2,9 +2,15 @@ extends layout
 
 block content
   div.row-fluid
+    h1 Moods
     .moodSet(ng-repeat='data in moodData')
-      div(ng-repeat='mood in data')
+      h3 {{data.time | date:'MM/dd/yyyy @ h:mma'}}
+      div(ng-repeat='mood in data.mood')
         {{mood.type}} {{mood.value}}
+    h1 Events
+    .moodSet(ng-repeat='data in eventData')
+      h3 {{data.time | date:'MM/dd/yyyy @ h:mma'}}
+      div {{data.moodEvent}}
 
 block scripts
   script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.3/angular.min.js')
