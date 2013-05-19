@@ -38,8 +38,6 @@ public class MoodMeme extends Activity {
 	private WebView webview;
 	private Timer timer;
 
-	// private static final int TIME = 1000*60*60*12;
-	private static final int TIME = 1000 * 10;
 	private static final int RESULT_SETTINGS = 1;
 
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -100,6 +98,7 @@ public class MoodMeme extends Activity {
 
 		// Hide the notification after its selected
 		noti.flags |= Notification.FLAG_AUTO_CANCEL;
+		noti.defaults |= Notification.DEFAULT_VIBRATE;
 		noti.vibrate = new long[] { 200 };
 
 		notificationManager.notify(0, noti);
