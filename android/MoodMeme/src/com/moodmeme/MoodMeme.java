@@ -22,6 +22,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -51,6 +52,8 @@ public class MoodMeme extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		webview = new WebView(this);
+		WebSettings webSettings = webview.getSettings();
+		webSettings.setJavaScriptEnabled(true);
 		webview.setWebViewClient(new WebViewClient() {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -99,7 +102,7 @@ public class MoodMeme extends Activity {
 		// Hide the notification after its selected
 		noti.flags |= Notification.FLAG_AUTO_CANCEL;
 		noti.defaults |= Notification.DEFAULT_VIBRATE;
-		noti.vibrate = new long[] { 200 };
+		noti.vibrate = new long[] { 100, 200 };
 
 		notificationManager.notify(0, noti);
 	}
