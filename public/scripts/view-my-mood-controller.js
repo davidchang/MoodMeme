@@ -60,7 +60,7 @@ App.controller('MoodCtrl', ['$scope', 'localStorageService', 'REST', function ($
     /* D3 */
     /*{ts: 1368987285622, overall_pa: 1},*/
     function generateOverviewGraph(rawData, svg, chart) {
-        var margin = {top: 5, right: 20, bottom: 30, left: 120},
+        var margin = {top: 5, right: 20, bottom: 30, left: 100},
             width = 320 - margin.left - margin.right,
             height = 260 - margin.top - margin.bottom;
 
@@ -161,7 +161,7 @@ App.controller('MoodCtrl', ['$scope', 'localStorageService', 'REST', function ($
 
     function generateDetailedGraph(data) {
 
-        var margin = {top: 5, right: 40, bottom: 20, left: 120},
+        var margin = {top: 5, right: 40, bottom: 20, left: 100},
             width = 400 - margin.left - margin.right,
             height = 50 - margin.top - margin.bottom;
 
