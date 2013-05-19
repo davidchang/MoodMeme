@@ -11,13 +11,13 @@ block content
               input(type='range', min='1', max='5', step='1', ng-model='scale.value')
           div
             button.btn(ng-click='saveInputs()') Save
-        #pictures.big-margin-top(ng-show='alreadySetTheirMood')
-          div {{responseText}}
-          img(ng-src="{{imgUrl}}")
-          .small-margin-top
+        #pictures(ng-show='alreadySetTheirMood')
+          div#responseText {{responseText}}
+          img#responseImg(ng-src="{{imgUrl}}")
+          .small-margin-top.clearfix
             div
               textarea(ng-model='description', placeholder='Optional explanation')
-            div
+            div.pull-right.margin-top-ten
               button.btn(ng-click='saveText()') Save
 
 block scripts

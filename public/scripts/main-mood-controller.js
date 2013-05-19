@@ -21,7 +21,7 @@ App.controller('MoodCtrl', ['$scope', 'localStorageService', 'REST', function($s
         var responses=[
             'I hope you start feeling better!',
             'That\'s a tough spot to be in...',
-            'Funny, I didn\'t really it was a Monday',
+            'Funny, I didn\'t realize it was Monday',
             'That\'s what I\'m talking about!',
             'High five! You got it!'
         ];
@@ -30,7 +30,6 @@ App.controller('MoodCtrl', ['$scope', 'localStorageService', 'REST', function($s
 
         $scope.imgUrl = '/img/dog' + moodIndex + '.jpg';
         $scope.responseText = responses[moodIndex];
-        console.log($scope.imgUrl);
     }
 
     $scope.alreadySetTheirMood = false;
@@ -44,9 +43,6 @@ App.controller('MoodCtrl', ['$scope', 'localStorageService', 'REST', function($s
         ls.add('metrics', JSON.stringify(metrics));
 
         REST.saveMood($scope.scales);
-
-        console.log('saved metrics:');
-        console.log(metrics);
 
         generateResponse();
 
@@ -71,9 +67,5 @@ App.controller('MoodCtrl', ['$scope', 'localStorageService', 'REST', function($s
         ls.add('descriptions', JSON.stringify(descriptions));
 
         REST.saveEvent($scope.description);
-        //$scope.description = '';
-
-        console.log('saved descriptions:');
-        console.log(descriptions);
     }
 }]);
