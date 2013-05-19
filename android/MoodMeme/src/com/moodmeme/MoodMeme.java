@@ -100,6 +100,7 @@ public class MoodMeme extends Activity {
 
 		// Hide the notification after its selected
 		noti.flags |= Notification.FLAG_AUTO_CANCEL;
+		noti.vibrate = new long[] { 200 };
 
 		notificationManager.notify(0, noti);
 	}
