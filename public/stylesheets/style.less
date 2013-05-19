@@ -22,3 +22,97 @@ body {
 .small-margin-top {
     margin-top: 15px;
 }
+.moodSet {
+    margin: 10px 0px;
+    padding: 10px 0px;
+    border-bottom: 1px solid #333;
+
+    &:last-child {
+        border-bottom: 0px solid #333;
+    }
+}
+
+body {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+svg text {
+    font: 10px sans-serif;
+    background-color: steelblue;
+    text-align: right;
+    padding: 3px;
+    margin: 1px;
+    color: white;
+}
+
+svg text.overall_pa {
+
+    fill: white;
+}
+
+svg text.time {
+    fill: black;
+}
+
+.bar {
+    fill: steelblue;
+    stroke: white;
+}
+
+.bullet {
+    font: 10px sans-serif;
+}
+
+.bullet .marker {
+    stroke: #000;
+    stroke-width: 2px;
+}
+
+.bullet .tick line {
+    stroke: #666;
+    stroke-width: .5px;
+}
+
+.bullet .range.s0 {
+    fill: #eee;
+}
+
+.bullet .range.s1 {
+    fill: #ddd;
+}
+
+.bullet .range.s2 {
+    fill: #ccc;
+}
+
+.bullet .measure.s0 {
+    fill: lightsteelblue;
+}
+
+.bullet .measure.s1 {
+    fill: steelblue;
+}
+
+.bullet .title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.bullet .subtitle {
+    fill: #999;
+}
+
+.details {
+    width: 400px;
+}
+
+.history {
+    width: 400px;
+}

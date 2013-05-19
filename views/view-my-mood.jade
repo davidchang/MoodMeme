@@ -2,11 +2,7 @@ extends layout
 
 block content
   div.row-fluid
-    h1 Moods
-    .moodSet(ng-repeat='data in moodData')
-      h3 {{data.time | date:'MM/dd/yyyy @ h:mma'}}
-      div(ng-repeat='mood in data.mood')
-        {{mood.type}} {{mood.value}}
+    .history
     h1 Events
     .moodSet(ng-repeat='data in eventData')
       h3 {{data.time | date:'MM/dd/yyyy @ h:mma'}}
@@ -18,3 +14,5 @@ block scripts
   script(src='/scripts/view-my-mood-controller.js')
   script(src='/scripts/angular-local-storage.js')
   script(src='/scripts/services.js')
+  script(src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js")
+  script(src="test/testMoodData.js")
