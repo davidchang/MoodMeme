@@ -71,7 +71,7 @@ public class MoodMeme extends Activity {
 
 		SharedPreferences sharedPrefs = PreferenceManager
 				.getDefaultSharedPreferences(this);
-		int frequency = sharedPrefs.getInt("prefNotificationFrequency", 24);
+		int frequency = Integer.parseInt(sharedPrefs.getString("prefNotificationFrequency", "24"));
 
 		if (timer == null) {
 			timer = new Timer();
@@ -80,7 +80,7 @@ public class MoodMeme extends Activity {
 			public void run() {
 				showNotification();
 			}
-		}, 0, frequency);
+		}, 0, frequency*1000);
 	}
 
 	public void showNotification() {
@@ -139,7 +139,6 @@ public class MoodMeme extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-
 		switch (requestCode) {
 		case RESULT_SETTINGS:
 			restartTimer();
