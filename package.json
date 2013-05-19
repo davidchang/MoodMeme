@@ -19,7 +19,10 @@
     "passport-facebook": "0.1.5",
     "passport-twitter": "0.1.4",
     "redis": "0.8.2",
-    "mongoose": "3.6.11"
+    "mongoose": "3.6.11",
+
+    "email-templates": "*",
+    "nodemailer": "*"
   },
   "engines": {
     "node": "0.8.x",

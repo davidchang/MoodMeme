@@ -1,4 +1,7 @@
+var emailer = require('./email');
+
 module.exports.setRoutes = function(app, passport, schemas) {
+    /* AUTHENTICATION */
     app.get('/auth/facebook', passport.authenticate('facebook'));
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
         successRedirect: '/',
@@ -14,6 +17,7 @@ module.exports.setRoutes = function(app, passport, schemas) {
         res.redirect('/');
     });
 
+    /* USER PAGES */
     app.get('/', function(req, res) {
         if(req.user)
             res.render('main-mood-page', { title: 'Hello ' + req.user.displayName, user: req.user });
@@ -28,6 +32,8 @@ module.exports.setRoutes = function(app, passport, schemas) {
         }
         res.render('view-my-mood', { title: 'View My Mood', user: req.user });
     });
+
+    /* REST */
 
     app.get('/network', function(req, res) {
         if(!req.user) {
@@ -91,5 +97,10 @@ module.exports.setRoutes = function(app, passport, schemas) {
 
     app.post('/friend', function(req, res) {
         console.log("RECEIVED THIS FRIEND INVITE: " + req.body.email);
+    });
+
+    /* EMAIL */
+    app.get('/email', function(req, res) {
+        emailer.sendEmail('', 'My subject');
     });
 }
