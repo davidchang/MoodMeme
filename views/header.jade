@@ -2,20 +2,16 @@ header#header
   .clearfix
     #account
       - if(user)
-        div.header
-            h1=title
-            div.btn-group
-                button.btn.btn-primary.dropdown-toggle(data-toggle='dropdown', href='#')
-                    span.caret
-                ul.dropdown-menu
-                    li
-                        a(href='/')
-                            i.icon-home Home
-                    li
-                        a(href='/myMood')
-                            i.icon-globe Network
-                    li
-                        a(href='/logout') Log Out
+        .header.clearfix
+          .title.pull-left MoodMeme
+          .pull-right
+            ul
+              li
+                a(href='/') Set Mood
+              li
+                a(href='/myMood') View Mood
+              li
+                a(href='/logout') Log Out
       - else
         div
           a(href='/auth/facebook') Log in with Facebook
