@@ -107,7 +107,11 @@ App.controller('MoodCtrl', ['$scope', 'localStorageService', 'REST', function ($
             })
             .attr("height", barHeight)
             .on("click", function (i) {
-                d3.select(this).style("fill", "green");
+                var randomNumber = function (min, max) {
+                    return (Math.floor(Math.random() * max) + min);
+                };
+                var nextColor = "green";
+                d3.select(this).style("fill", nextColor);
                 updateDetailedGraph(formatForDetailedGraph(i.index), svg, chart);
                 console.log(i);
             });
@@ -146,24 +150,16 @@ App.controller('MoodCtrl', ['$scope', 'localStorageService', 'REST', function ($
     }
 
     function updateDetailedGraph(data, svg, chart) {
-        console.log(svg);
-        console.log(chart);
         svg.datum(randomize).call(chart.duration(1000)); // TODO automatic transition
         function randomize(d) {
             var result = data.filter(function (i) {
-                console.log(d);
-                console.log(i);
                 return i.title == d.title
             })[0];
-            console.log(result);
             return result;
         }
     }
 
     function generateDetailedGraph(data) {
-
-        console.log('data');
-        console.log(data);
 
         var margin = {top: 5, right: 40, bottom: 20, left: 120},
             width = 400 - margin.left - margin.right,
