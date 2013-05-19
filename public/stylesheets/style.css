@@ -342,3 +342,6 @@ textarea {
 .margin-top-ten {
   margin-top: 10px;
 }
+#moodScales table tbody tr:first-child td {
+  border-top: 0px solid black;
+}

@@ -5,10 +5,12 @@ block content
     div
       div.row-fluid
         #moodScales(ng-hide='alreadySetTheirMood')
-          div(ng-repeat='scale in scales')
-            div
-              {{scale.type}}
-              input(type='range', min='1', max='5', step='1', ng-model='scale.value')
+          table.table
+            tbody
+              tr(ng-repeat='scale in scales')
+                td {{scale.type}}
+                td
+                  input(type='range', min='1', max='5', step='1', ng-model='scale.value')
           div
             button.btn(ng-click='saveInputs()') Save
         #pictures(ng-show='alreadySetTheirMood')
