@@ -1,10 +1,9 @@
 header#header
-  .clearfix
     #account
       - if(user)
         .header.clearfix
-          .title.pull-left MoodMeme
-          .pull-right
+          .title.row-fluid MoodMeme
+          .row-fluid.small-margin-top
             ul
               li
                 a(href='/') Set Mood
