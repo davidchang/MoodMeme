@@ -2,17 +2,21 @@ extends layout
 
 block content
   div.row-fluid
-    div(ng-repeat='scale in scales')
+    #moodScales(ng-hide='alreadySetTheirMood')
+      div(ng-repeat='scale in scales')
+        div
+          {{scale.text}}
+        input(type='range', min='1', max='5', ng-model="scale.value", step='1')
       div
-        {{scale.text}}
-      input(type='range', min='1', max='5', ng-model="scale.value", step='1')
-    div
-      button.btn(ng-click='saveInputs()') Save
-    div(style='margin-top: 25px;')
-      div
-        textarea(ng-model='description', placeholder='Optional explanation')
-      div
-        button.btn(ng-click='saveText()') Save
+        button.btn(ng-click='saveInputs()') Save
+    #pictures.big-margin-top(ng-show='alreadySetTheirMood')
+      div {{responseText}}
+      img(ng-src="{{imgUrl}}")
+      .small-margin-top
+        div
+          textarea(ng-model='description', placeholder='Optional explanation')
+        div
+          button.btn(ng-click='saveText()') Save
 
 block scripts
   script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.3/angular.min.js')
