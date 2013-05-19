@@ -32,8 +32,6 @@ import android.webkit.WebViewClient;
  * 
  * @see SystemUiHider
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-@SuppressLint("NewApi")
 public class MoodMeme extends Activity {
 
 	private WebView webview;
@@ -41,8 +39,6 @@ public class MoodMeme extends Activity {
 
 	private static final int RESULT_SETTINGS = 1;
 
-	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -91,7 +87,7 @@ public class MoodMeme extends Activity {
 
 		// Build notification
 		// Actions are just fake
-		Notification noti = new Notification.Builder(this)
+		Notification noti = new NotificationCompat.Builder(this)
 				.setContentTitle("MoodMeme")
 				.setContentText("Update your mood!")
 				.setSmallIcon(R.drawable.ic_launcher).setContentIntent(pIntent)
