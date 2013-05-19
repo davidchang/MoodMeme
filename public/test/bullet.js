@@ -10,7 +10,7 @@
             ranges = bulletRanges,
             markers = bulletMarkers,
             measures = bulletMeasures,
-            width = 280,
+            width = 380,
             height = 30,
             tickFormat = null;
 
