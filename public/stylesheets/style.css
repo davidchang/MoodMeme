@@ -198,6 +198,9 @@ body {
 #header #account ul li:first-child {
   margin-left: 0px;
 }
+#header .socialLink {
+  text-align: center;
+}
 .wrapper {
   width: 460px;
   margin: 30px auto 0px;

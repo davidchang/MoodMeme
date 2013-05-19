@@ -1,7 +1,7 @@
 header#header
     #account
       - if(user)
-        .header.clearfix
+        .header
           .title.row-fluid MoodMeme
           #actions.row-fluid
             ul
@@ -12,7 +12,9 @@ header#header
               li
                 a(href='/logout') Log Out
       - else
-        div
+        .header
+          .title.row-fluid MoodMeme
+        div.socialLink.small-margin-top
           a(href='/auth/facebook') Log in with Facebook
-        div
+        div.socialLink
           a(href='/auth/twitter') Log in with Twitter
