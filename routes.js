@@ -1,4 +1,7 @@
+var emailer = require('./email');
+
 module.exports.setRoutes = function(app, passport, schemas) {
+    /* AUTHENTICATION */
     app.get('/auth/facebook', passport.authenticate('facebook'));
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
         successRedirect: '/',
@@ -14,6 +17,7 @@ module.exports.setRoutes = function(app, passport, schemas) {
         res.redirect('/');
     });
 
+    /* USER PAGES */
     app.get('/', function(req, res) {
         if(req.user)
             res.render('main-mood-page', { title: 'Add', user: req.user });
@@ -28,6 +32,8 @@ module.exports.setRoutes = function(app, passport, schemas) {
         }
         res.render('view-my-mood', { title: 'View My Mood', user: req.user });
     });
+
+    /* REST */
 
     app.get('/network', function(req, res) {
         if(!req.user) {
@@ -63,11 +69,38 @@ module.exports.setRoutes = function(app, passport, schemas) {
         });
     });
 
+    app.get('/moodEvent', function(req, res) {
+        schemas.Event.find({ userId: req.user.id }, function(error, data) {
+            if(error) {
+                console.log(error);   
+                return;
+            }
+
+            res.writeHead(200, { "Content-Type" : 'text/plain' });
+            console.log(data);
+            res.end(JSON.stringify(data));
+        });
+    });
+
     app.post('/moodEvent', function(req, res) {
         console.log("RECEIVED THIS MOOD EVENT: " + req.body.moodEvent);
+        var moodEvent = new schemas.Event({
+            userId: req.user.id,
+            text: req.body.moodEvent
+        });
+
+        moodEvent.save(function(err, moodEvent) {
+            if(err)
+                console.log(err);
+        });
     });
 
     app.post('/friend', function(req, res) {
         console.log("RECEIVED THIS FRIEND INVITE: " + req.body.email);
+    });
+
+    /* EMAIL */
+    app.get('/email', function(req, res) {
+        emailer.sendEmail('', 'My subject');
     });
 }

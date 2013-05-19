@@ -151,6 +151,7 @@
 
 </head>
 <body>
+<h1>How you felt this past week</h1>
 <div id="charts">
     <div id="hour-chart" class="chart">
         <div class="title">Time of Day</div>
@@ -199,7 +200,7 @@ d3.csv("testMoodData.csv", function (error, moods) {
             formatDate = d3.time.format("%B %d, %Y"),
             formatTime = d3.time.format("%I:%M %p");
 
-    // A nest operator, for grouping the flight list.
+    // A nest operator, for grouping the mood list.
     var nestByDate = d3.nest()
             .key(function (d) {
                 return d3.time.day(d.date);
@@ -214,24 +215,24 @@ d3.csv("testMoodData.csv", function (error, moods) {
     });
 
     // Create the crossfilter for the relevant dimensions and groups.
-    var flight = crossfilter(moods),
-            all = flight.groupAll(),
-            date = flight.dimension(function (d) {
+    var mood = crossfilter(moods),
+            all = mood.groupAll(),
+            date = mood.dimension(function (d) {
                 return d3.time.day(d.date);
             }),
             dates = date.group(),
-            hour = flight.dimension(function (d) {
+            hour = mood.dimension(function (d) {
                 return d.date.getHours() + d.date.getMinutes() / 60;
             }),
             hours = hour.group(Math.floor),
     // todo figure out what to do here
-            overall_pa = flight.dimension(function (d) {
+            overall_pa = mood.dimension(function (d) {
                 return d.overall_pa//Math.max(-60, Math.min(149, d.overall_pa));
             }),
             overall_pas = overall_pa.group(function (d) {
                 return d;//Math.floor(d / 10) * 10;
             }),
-            overall_na = flight.dimension(function (d) {
+            overall_na = mood.dimension(function (d) {
                 return d.overall_na//Math.min(1999, d.overall_na);
             }),
             overall_nas = overall_na.group(function (d) {
@@ -287,7 +288,7 @@ d3.csv("testMoodData.csv", function (error, moods) {
 
     // Render the total.
     d3.selectAll("#total")
-            .text(formatNumber(flight.size()));
+            .text(formatNumber(mood.size()));
 
     renderAll();
 

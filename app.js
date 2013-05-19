@@ -7,6 +7,8 @@ var express = require('express')
 
 require('./passport-config')(passport, client);
 
+require('./email');
+
 var schemas = require('./mongo');
 
 client.on('error', function(err) {
