@@ -16,9 +16,8 @@ App.service('REST', ['$http', function($http) {
             });
     }
 
-    //just an example GET api
-    this.getExample = function(callback) {
-        $http.get('/example/')
+    this.getMood = function(callback) {
+        $http.get('/mood/')
             .then(function(res) {
                 callback(res);
             });
