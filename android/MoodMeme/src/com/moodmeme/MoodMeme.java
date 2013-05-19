@@ -80,7 +80,7 @@ public class MoodMeme extends Activity {
 			public void run() {
 				showNotification();
 			}
-		}, 0, frequency*1000);
+		}, 0, frequency*1000*3600);
 	}
 
 	public void showNotification() {
