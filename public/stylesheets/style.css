@@ -169,17 +169,27 @@ body {
   padding: 0;
 }
 .login {
-  background-color: blue;
   padding: 20px;
 }
-.header {
-  background-color: #222222;
-  color: white;
-  text-align: center;
-  padding: 20px;
+#header .header {
+  color: black;
+  padding: 10px 0px;
+}
+#header .header .title {
+  font-size: 2.0em;
+}
+#header #account ul {
+  list-style-type: none;
+  margin-left: 0px;
+}
+#header #account ul li {
+  display: inline-block;
+  margin-left: 10px;
+}
+#header #account ul li:first-child {
+  margin-left: 0px;
 }
 .wrapper {
-  background-color: #6ba242;
   padding: 0px 30px;
 }
 .big-margin-top {
