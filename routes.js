@@ -1,4 +1,4 @@
-module.exports.setRoutes = function(app, passport) {
+module.exports.setRoutes = function(app, passport, schemas) {
     app.get('/auth/facebook', passport.authenticate('facebook'));
     app.get('/auth/facebook/callback', passport.authenticate('facebook', {
         successRedirect: '/',
@@ -26,6 +26,15 @@ module.exports.setRoutes = function(app, passport) {
 
     app.post('/mood', function(req, res) {
         console.log("RECEIVED THIS SET OF MOODS: " + req.body.mood);
+        var mood = new schemas.Mood({
+            userId: req.user.id,
+            mood: req.body.mood
+        });
+
+        mood.save(function(err, mood) {
+            if(err)
+                console.log(err);
+        });
     });
 
     app.post('/moodEvent', function(req, res) {

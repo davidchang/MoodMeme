@@ -7,6 +7,8 @@ var express = require('express')
 
 require('./passport-config')(passport, client);
 
+var schemas = require('./mongo');
+
 client.on('error', function(err) {
     console.log('redis error ' + err);
 });
@@ -35,7 +37,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-require('./routes').setRoutes(app, passport);
+require('./routes').setRoutes(app, passport, schemas);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
