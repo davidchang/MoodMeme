@@ -3,10 +3,25 @@ extends layout
 block content
   div.row-fluid
     .history
-    h1 Events
-    .moodSet(ng-repeat='data in eventData')
-      h3 {{data.time | date:'MM/dd/yyyy @ h:mma'}}
-      div {{data.moodEvent}}
+    .details
+    //
+        h1 Events
+        .moodSet(ng-repeat='data in eventData')
+          h3 {{data.time | date:'MM/dd/yyyy @ h:mma'}}
+          div {{data.moodEvent}}
+
+
+
+  //
+      a.btn(href='#detail', role='button', data-toggle='model', data-target='#detail') Launch demo model
+      #detail.modal.hide.fade(tab-index='-1', role='dialog', aria-labelledby='myModalHeader', aria-hidden='true')
+        .modal-header
+          button.close(type='button', data-dismiss='model', aria-hidden='true') &times;
+          h3#myModalHeader Modal header
+        .modal-body
+          p One fine body...
+        .modal-footer
+          a.btn(href='#') Close
 
 block scripts
   script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.3/angular.min.js')
@@ -16,3 +31,4 @@ block scripts
   script(src='/scripts/services.js')
   script(src="//cdnjs.cloudflare.com/ajax/libs/d3/3.0.8/d3.min.js")
   script(src="test/testMoodData.js")
+  script(src="test/bullet.js")
