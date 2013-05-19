@@ -20,9 +20,9 @@ module.exports.setRoutes = function(app, passport, schemas) {
     /* USER PAGES */
     app.get('/', function(req, res) {
         if(req.user)
-            res.render('main-mood-page', { title: 'Add', user: req.user });
+            res.render('main-mood-page', { title: 'MoodMeme | Set Your Mood', user: req.user });
         else
-            res.render('index', { title: 'Registration', user: req.user });
+            res.render('index', { title: 'MoodMeme | Log In', user: req.user });
     });
 
     app.get('/myMood', function(req, res) {
@@ -30,17 +30,17 @@ module.exports.setRoutes = function(app, passport, schemas) {
             res.redirect('/');
             return;
         }
-        res.render('view-my-mood', { title: 'View My Mood', user: req.user });
+        res.render('view-my-mood', { title: 'MoodMeme | View Your Moods', user: req.user });
     });
 
     /* REST */
 
-    app.get('/network', function(req, res) {
+    app.get('/askAFriend', function(req, res) {
         if(!req.user) {
             res.redirect('/');
             return;
         }
-        res.render('network', { title: 'Network', user: req.user });
+        res.render('network', { title: 'MoodMeme | Ask A Friend', user: req.user });
     });
 
     app.get('/mood', function(req, res) {
