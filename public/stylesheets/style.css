@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 0;
 }
+.login {
+  background-color: blue;
+  padding: 20px;
+}
 .header {
   background-color: #222222;
   color: white;
@@ -10,19 +14,11 @@ body {
 }
 .wrapper {
   max-width: 960px;
-  margin: 25px auto;
+  background-color: #6ba242;
 }
 .big-margin-top {
   margin-top: 25px;
 }
 .small-margin-top {
   margin-top: 15px;
-}
-.moodSet {
-  margin: 10px 0px;
-  padding: 10px 0px;
-  border-bottom: 1px solid #333;
-}
-.moodSet:last-child {
-  border-bottom: 0px solid #333;
 }

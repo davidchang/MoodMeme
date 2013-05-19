@@ -16,7 +16,7 @@ module.exports.setRoutes = function(app, passport, schemas) {
 
     app.get('/', function(req, res) {
         if(req.user)
-            res.render('main-mood-page', { title: 'Hello ' + req.user.displayName, user: req.user });
+            res.render('main-mood-page', { title: 'Add', user: req.user });
         else
             res.render('index', { title: 'Registration', user: req.user });
     });

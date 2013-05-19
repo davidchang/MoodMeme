@@ -1,16 +1,21 @@
 header#header
   .clearfix
-    #account.pull-left
+    #account
       - if(user)
-        div Logged in as #{user.displayName}
-        div
-          a(href='/') Home
-        div
-          a(href='/myMood') My Mood
-        div
-          a(href='/network') Network
-        div
-          a(href='/logout') Log out
+        div.header
+            h1=title
+            div.btn-group
+                button.btn.btn-primary.dropdown-toggle(data-toggle='dropdown', href='#')
+                    span.caret
+                ul.dropdown-menu
+                    li
+                        a(href='/')
+                            i.icon-home Home
+                    li
+                        a(href='/myMood')
+                            i.icon-globe Network
+                    li
+                        a(href='/logout') Log Out
       - else
         div
           a(href='/auth/facebook') Log in with Facebook
