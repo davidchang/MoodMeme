@@ -10,7 +10,14 @@ App.service('REST', ['$http', function($http) {
     }
 
     this.saveEvent = function(moodEvent, callback) {
-        $http.post('/moodEvent/', { moodEvent : JSON.stringify(moodEvent) })
+        $http.post('/moodEvent/', { moodEvent : moodEvent })
+            .then(function(res){
+                callback && callback(res.data !== 'OK', res);
+            });
+    }
+
+    this.inviteFriend = function(invitedPerson, callback) {
+        $http.post('/friend/', { email: $scope.invitedPerson })
             .then(function(res){
                 callback && callback(res.data !== 'OK', res);
             });
@@ -23,11 +30,11 @@ App.service('REST', ['$http', function($http) {
             });
     };
 
-    this.inviteFriend = function(invitedPerson, callback) {
-        $http.post('/friend/', { email: $scope.invitedPerson })
-            .then(function(res){
-                callback && callback(res.data !== 'OK', res);
+    this.getEvents = function(callback) {
+        $http.get('/moodEvent/')
+            .then(function(res) {
+                callback(res);
             });
-    }
+    };
 }
 ]);
