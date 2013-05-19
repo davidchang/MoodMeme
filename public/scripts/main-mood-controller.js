@@ -2,11 +2,11 @@
 
 App.controller('MoodCtrl', ['$scope', 'localStorageService', 'REST', function($scope, ls, REST) {
     var defaultScales = [
-        {text: 'Excited', value: 3},
-        {text: 'Determined', value: 3},
-        {text: 'Inspired', value: 3},
-        {text: 'Alert', value: 3},
-        {text: 'Enthusiastic', value: 3},
+        {type: 'Excited', value: 3},
+        {type: 'Determined', value: 3},
+        {type: 'Inspired', value: 3},
+        {type: 'Alert', value: 3},
+        {type: 'Enthusiastic', value: 3},
     ];
 
     var savedMetrics = JSON.parse(ls.get('metrics'));

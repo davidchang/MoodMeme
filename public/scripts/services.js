@@ -16,12 +16,18 @@ App.service('REST', ['$http', function($http) {
             });
     }
 
-    //just an example GET api
-    this.getExample = function(callback) {
-        $http.get('/example/')
+    this.getMood = function(callback) {
+        $http.get('/mood/')
             .then(function(res) {
                 callback(res);
             });
     };
+
+    this.inviteFriend = function(invitedPerson, callback) {
+        $http.post('/friend/', { email: $scope.invitedPerson })
+            .then(function(res){
+                callback && callback(res.data !== 'OK', res);
+            });
+    }
 }
 ]);
