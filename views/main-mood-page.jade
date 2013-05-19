@@ -1,13 +1,14 @@
 extends layout
 
 block content
+    link(rel='stylesheet', href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css')
     div
       div.row-fluid
         #moodScales(ng-hide='alreadySetTheirMood')
           div(ng-repeat='scale in scales')
             div
               {{scale.type}}
-            input.slider(type="hidden", ng-model="scale.value")
+              input(type='range', min='1', max='5', step='1', ng-model='scale.value')
           div
             button.btn(ng-click='saveInputs()') Save
         #pictures.big-margin-top(ng-show='alreadySetTheirMood')
@@ -23,18 +24,14 @@ block scripts
   script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.3/angular.min.js')
   script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
   script(src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js')
+  script(src='https://raw.github.com/jonstipe/range-polyfill/master/range-polyfill.js')
   script(src='//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js')
   script(src='/scripts/app.js')
   script(src='/scripts/main-mood-controller.js')
   script(src='/scripts/angular-local-storage.js')
   script(src='/scripts/services.js')
-  script(type='text/javascript')
-	$(function() {
-		$( ".slider" ).slider({
-		  range: "max",
-		  min: 1,
-		  max: 5,
-		  slide: function(event, ui) {
-			$(this).val(ui.value);
-		  }
-    });
+  //
+    script(type='text/javascript')
+      $(function() {
+        $( ".slider" ).slider({ range: "max", min: 1, max: 5, slide: function(event, ui) { $(this).find('input').html(ui.value); } });
+      });
