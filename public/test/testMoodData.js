@@ -78,3 +78,28 @@ var completeTestData = users.map(function(u){
 });
 
 console.log(completeTestData);
+
+// calculate the average of a particular mood inside a time window
+var averageMood = function(data, mood){
+    var average = 0;
+    data.forEach(function(d){
+        average += d.data.moods[mood];
+    });
+    return average / data.length;
+};
+
+// calculate the overall mood for a specific data point
+// assumes positive affect only
+var overallMood = function(moods){
+    var overall = 0;
+    var i = 0;
+    for(m in moods){
+        if(moods.hasOwnProperty(m)){
+            overall += moods[m];
+            i++;
+        }
+    }
+    return overall / i;
+};
+
+// now insert this data structure into redis by hitting the REST url exposed by express.

@@ -1,0 +1,7 @@
+[
+    {"title":"Inspired","subtitle":"","ranges":[1,3,5],"measures":[3,5],"markers":[1]},
+    {"title":"Alert","subtitle":"","ranges":[1,3,5],"measures":[1,2],"markers":[3]},
+    {"title":"Excited","subtitle":"","ranges":[1,3,5],"measures":[5,3],"markers":[4]},
+    {"title":"Enthusiastic","subtitle":"","ranges":[1,3,5],"measures":[4,4],"markers":[1]},
+    {"title":"Determined","subtitle":"","ranges":[1,3,5],"measures":[3,4],"markers":[2]}
+]
