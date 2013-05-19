@@ -1,6 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  background-color: #222222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
 .wrapper {
   max-width: 960px;
-  width: 80%;
   margin: 25px auto;
 }
 .big-margin-top {

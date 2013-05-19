@@ -21,7 +21,7 @@ module.exports.setRoutes = function(app, passport) {
         if(req.user)
             res.render('main-mood-page', { title: 'Hello ' + req.user.displayName, user: req.user });
         else
-            res.render('index', { title: 'You are not yet logged in', user: req.user });
+            res.render('index', { title: 'Registration', user: req.user });
     });
 
     app.post('/mood', function(req, res) {
