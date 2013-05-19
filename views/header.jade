@@ -4,6 +4,10 @@ header#header
       - if(user)
         div Logged in as #{user.displayName}
         div
+          a(href='/') Home
+        div
+          a(href='/myMood') My Mood
+        div
           a(href='/logout') Log out
       - else
         div
