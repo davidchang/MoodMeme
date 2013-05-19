@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notificationFrequency">
+        <item name="1">Every hour</item>
+        <item name="6">Every 6 hours</item>
+        <item name="12">Every 12 hours</item>
+        <item name="24">Every day</item>
+        <item name="168">Every week</item>
+    </string-array>
+    <string-array name="notificationFrequencyValues">
+        <item name="1">1</item>
+        <item name="6">6</item>
+        <item name="12">12</item>
+        <item name="24">24</item>
+        <item name="168">168</item>
+    </string-array>
+     
+</resources>

@@ -7,5 +7,8 @@ lib-cov
 *.pid
 *.swp
 *.swo
+*.apk
+*.class
+*.dex
 
 node_modules/

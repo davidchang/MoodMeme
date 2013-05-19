@@ -1,0 +1,4 @@
+
+    <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+        <ListPreference android:entries="@array/notificationFrequency" android:entryValues="@array/notificationFrequencyValues" android:title="Notification Frequency" android:key="prefNotificationFrequency"/>
+    </PreferenceScreen>
