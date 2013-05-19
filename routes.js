@@ -29,6 +29,14 @@ module.exports.setRoutes = function(app, passport, schemas) {
         res.render('view-my-mood', { title: 'View My Mood', user: req.user });
     });
 
+    app.get('/network', function(req, res) {
+        if(!req.user) {
+            res.redirect('/');
+            return;
+        }
+        res.render('network', { title: 'Network', user: req.user });
+    });
+
     app.get('/mood', function(req, res) {
         schemas.Mood.find({ userId: req.user.id }, function(error, data) {
             if(error) {
@@ -59,4 +67,7 @@ module.exports.setRoutes = function(app, passport, schemas) {
         console.log("RECEIVED THIS MOOD EVENT: " + req.body.moodEvent);
     });
 
+    app.post('/friend', function(req, res) {
+        console.log("RECEIVED THIS FRIEND INVITE: " + req.body.email);
+    });
 }

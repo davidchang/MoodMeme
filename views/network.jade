@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div.row-fluid
+    input(type='text', ng-model='invitedPerson', placeholder='Who would you like to invite?')
+    button.btn(ng-click='invite()') Invite
+
+block scripts
+  script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.3/angular.min.js')
+  script(src='/scripts/app.js')
+  script(src='/scripts/network-controller.js')
+  script(src='/scripts/angular-local-storage.js')
+  script(src='/scripts/services.js')

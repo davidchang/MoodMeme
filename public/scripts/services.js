@@ -22,5 +22,12 @@ App.service('REST', ['$http', function($http) {
                 callback(res);
             });
     };
+
+    this.inviteFriend = function(invitedPerson, callback) {
+        $http.post('/friend/', { email: $scope.invitedPerson })
+            .then(function(res){
+                callback && callback(res.data !== 'OK', res);
+            });
+    }
 }
 ]);
