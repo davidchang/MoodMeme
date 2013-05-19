@@ -22,6 +22,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -31,8 +32,6 @@ import android.webkit.WebViewClient;
  * 
  * @see SystemUiHider
  */
-@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-@SuppressLint("NewApi")
 public class MoodMeme extends Activity {
 
 	private WebView webview;
@@ -40,8 +39,6 @@ public class MoodMeme extends Activity {
 
 	private static final int RESULT_SETTINGS = 1;
 
-	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,6 +48,8 @@ public class MoodMeme extends Activity {
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		webview = new WebView(this);
+		WebSettings webSettings = webview.getSettings();
+		webSettings.setJavaScriptEnabled(true);
 		webview.setWebViewClient(new WebViewClient() {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -88,7 +87,7 @@ public class MoodMeme extends Activity {
 
 		// Build notification
 		// Actions are just fake
-		Notification noti = new Notification.Builder(this)
+		Notification noti = new NotificationCompat.Builder(this)
 				.setContentTitle("MoodMeme")
 				.setContentText("Update your mood!")
 				.setSmallIcon(R.drawable.ic_launcher).setContentIntent(pIntent)
@@ -99,7 +98,7 @@ public class MoodMeme extends Activity {
 		// Hide the notification after its selected
 		noti.flags |= Notification.FLAG_AUTO_CANCEL;
 		noti.defaults |= Notification.DEFAULT_VIBRATE;
-		noti.vibrate = new long[] { 200 };
+		noti.vibrate = new long[] { 100, 200 };
 
 		notificationManager.notify(0, noti);
 	}
