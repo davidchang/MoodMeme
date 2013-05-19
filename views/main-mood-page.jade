@@ -7,7 +7,7 @@ block content
           div(ng-repeat='scale in scales')
             div
               {{scale.type}}
-            input(type='range', min='1', max='5', ng-model="scale.value", step='1')
+            input.slider(type="hidden", ng-model="scale.value")
           div
             button.btn(ng-click='saveInputs()') Save
         #pictures.big-margin-top(ng-show='alreadySetTheirMood')
@@ -27,3 +27,13 @@ block scripts
   script(src='/scripts/main-mood-controller.js')
   script(src='/scripts/angular-local-storage.js')
   script(src='/scripts/services.js')
+  script(type='text/javascript')
+	$(function() {
+		$( ".slider" ).slider({
+		  range: "max",
+		  min: 1,
+		  max: 5,
+		  slide: function(event, ui) {
+			$(this).val(ui.value);
+		  }
+    });
