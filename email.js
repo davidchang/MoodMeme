@@ -11,7 +11,7 @@ module.exports.sendEmail = function(toWhom, subject) {
           service: "Gmail",
           auth: {
             user: "dchang.me@gmail.com",
-            pass: "lgzxdovuexmwmoei"
+            pass: "REVOKED... go to the 'authorized access to your Google account' page"
           }
         });
 
